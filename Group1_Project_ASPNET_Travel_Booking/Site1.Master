@@ -32,8 +32,28 @@
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
 
-        <footer class="bg-dark text-white text-center py-3 mt-5">
-            <p>&copy; 2025 Flyora | Group Members: John Doe (123456), Jane Smith (654321), Alice Johnson (789012), Bob Brown (345678)</p>
+        <footer class="bg-primary text-white text-center py-4 mt-5" style="background-color: #2c5aa0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h5>About Flyora</h5>
+                        <p>Flyora is your trusted travel companion, offering seamless booking for flights, hotels, and experiences worldwide. Discover the world with us!</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Contact Us</h5>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Travel Lane, Toronto, ON</p>
+                        <p><i class="fas fa-phone"></i> +1 (416) 555-1234</p>
+                        <p><i class="fas fa-envelope"></i> support@flyora.com</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Follow Us On Scial Media</h5>
+                        
+                    </div>
+                </div>
+                <hr class="bg-white" />
+                <p>&copy; 2025 Flyora | Group Members: Greeshma Prasad (123456), Mary Jain (654321), Swedha (789012), Mohammad Ijas (345678)</p>
+                <p>Travel with confidence | All rights reserved</p>
+            </div>
         </footer>
     </form>
 </body>
