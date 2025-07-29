@@ -70,10 +70,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About_us_screen.aspx" />
+    <Content Include="App_Data\TechCart_TravelDB.mdf" />
+    <Content Include="App_Data\TechCart_TravelDB_log.ldf">
+      <DependentUpon>TechCart_TravelDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Contact_us_screen.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -85,7 +92,22 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Images\gmap.png" />
+    <Content Include="Images\login.jpg" />
+    <Content Include="Images\map.webp" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Images\bali.jpg" />
+    <Content Include="Images\dubai.jpg" />
+    <Content Include="Images\kerala.jpg" />
+    <Content Include="Images\paris.jpg" />
+    <Content Include="Images\person1.jpg" />
+    <Content Include="Images\person2.jpg" />
+    <Content Include="Images\person3.jpg" />
+    <Content Include="Images\punjab.jpg" />
+    <Content Include="Images\singapore.jpg" />
+    <Content Include="Images\thailand.jpg" />
+    <Content Include="Images\tower.jpg" />
+    <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -96,7 +118,21 @@
     <Content Include="Site1.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About_us_screen.aspx.cs">
+      <DependentUpon>About_us_screen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About_us_screen.aspx.designer.cs">
+      <DependentUpon>About_us_screen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Contact_us_screen.aspx.cs">
+      <DependentUpon>Contact_us_screen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact_us_screen.aspx.designer.cs">
+      <DependentUpon>Contact_us_screen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -107,21 +143,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -138,7 +184,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,19 +1,40 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Group1_Project_ASPNET_Travel_Booking.Site1" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+        <header class="header">
+            <nav class="nav-container">
+                <div class="logo">Flyora</div>
+                <ul class="nav-links">
+
+                    <li><a href="<%= ResolveUrl("~/Travel/Default") %>">Home</a></li>
+                    <li><a href="#destination">Destination</a></li>
+                    <li><a href="<%= ResolveUrl("~/Travel/AboutUs") %>">About Us</a></li>
+                    <li><a href="<%= ResolveUrl("~/Travel/ContactUs") %>">Contact Us</a></li>
+                    <li><a href="<%= ResolveUrl("~/Travel/Login") %>">Login</a></li>
+                    <li><a href="#book" id="book-trip-btn" class="book-trip-btn">Book Trip</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <footer class="bg-dark text-white text-center py-3 mt-5">
+            <p>&copy; 2025 Flyora | Group Members: John Doe (123456), Jane Smith (654321), Alice Johnson (789012), Bob Brown (345678)</p>
+        </footer>
     </form>
 </body>
 </html>
