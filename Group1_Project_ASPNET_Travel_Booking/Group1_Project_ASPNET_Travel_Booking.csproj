@@ -95,6 +95,7 @@
     <Content Include="Images\gmap.png" />
     <Content Include="Images\login.jpg" />
     <Content Include="Images\map.webp" />
+    <Content Include="readme.md" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Images\bali.jpg" />
     <Content Include="Images\dubai.jpg" />

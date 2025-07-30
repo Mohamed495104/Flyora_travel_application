@@ -14,8 +14,6 @@
 
     <!-- Testimonials Section -->
     <section class="testimonials">
-        <!-- Decorative Elements -->
-
 
         <div class="testimonials-container">
             <div class="section-header">
@@ -24,7 +22,7 @@
             </div>
 
             <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
+              
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         "A home that perfectly blends sustainability with luxury until I discovered Ecoland Residence. From the moment I stepped into this community, I knew it was where I wanted to live. The commitment to eco-friendly living"
@@ -48,7 +46,7 @@
 
                 </div>
 
-                <!-- Testimonial 2 -->
+               
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         "A home that perfectly blends sustainability with luxury until I discovered Ecoland Residence. From the moment I stepped into this community, I knew it was where I wanted to live. The commitment to eco-friendly living"
@@ -72,7 +70,7 @@
 
                 </div>
 
-                <!-- Testimonial 3 -->
+              
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         "A home that perfectly blends sustainability with luxury until I discovered Ecoland Residence. From the moment I stepped into this community, I knew it was where I wanted to live. The commitment to eco-friendly living"
@@ -97,7 +95,7 @@
                 </div>
             </div>
 
-            <!-- Brand Logos -->
+          
             <div class="brand-logos" style="display: flex; justify-content: center; align-items: center; gap: 3rem; opacity: 0.6; margin-top: 3rem;">
                 <div style="font-size: 1.2rem; color: #4a90e2; font-weight: bold;">Adventure Co</div>
                 <div style="font-size: 1.2rem; color: #4a90e2; font-weight: bold;">Mountain Tours</div>
@@ -108,7 +106,7 @@
         </div>
     </section>
 
-    <!-- Tour Guides Section -->
+   
     <section class="tour-guides">
         <div class="guides-container">
             <div class="section-header">
@@ -117,7 +115,7 @@
             </div>
 
             <div class="guides-grid">
-                <!-- Guide 1 -->
+               
                 <div class="guide-card">
                    
                     <div >
@@ -135,7 +133,7 @@
                     </div>
                 </div>
 
-                <!-- Guide 2 - Featured -->
+              
                 <div class="guide-card featured">
                     <img src="/Images/person2.jpg" alt="Andrew Simon" width="60px" height="60px" class="guide-avatar" />
                     <h3 class="guide-name">Jane Cooper</h3>
@@ -149,7 +147,7 @@
                     </div>
                 </div>
 
-                <!-- Guide 3 -->
+              
                 <div class="guide-card">
                     <img src="/Images/person3.jpg" alt="Andrew Simon" width="60px" height="60px" class="guide-avatar" />
                     <h3 class="guide-name">Guy Hawkins</h3>
@@ -170,10 +168,7 @@
 
     <!-- Gallery Section -->
     <section class="gallery">
-        <!-- Decorative Elements -->
-        <svg class="airplane-decoration bottom-right" width="80" height="40" viewBox="0 0 80 40">
-            <path d="M5,20 L20,12 L50,15 L75,5 L78,10 L50,18 L60,25 L55,28 L45,20 L20,25 L8,32 Z" fill="#2c5aa0" />
-        </svg>
+    
 
         <div class="gallery-container">
             <div class="section-header">
@@ -210,7 +205,6 @@
         </div>
     </section>
 
-    <!-- Statistics Section -->
     <section class="statistics">
        
        

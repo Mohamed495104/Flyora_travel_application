@@ -54,7 +54,7 @@ body {
 .book-trip-btn {
     width: 10rem;
     background: #2c5aa0;
-    color: white;
+    color: white !important;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
     text-decoration: none;
@@ -79,9 +79,7 @@ body {
     box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
 }
 
-#book-trip-btn {
-    color: white
-}
+
 /* Hero Section */
 .hero {
     background: url('/Images/kerala.jpg');
@@ -116,16 +114,7 @@ body {
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1" d="M10,10 L90,90 M90,10 L10,90"/></svg>');
-    pointer-events: none;
-}
+
 
 .hero-title {
     font-size: 3rem;
@@ -171,6 +160,7 @@ body {
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
+
 .hero-login h2 {
     font-size: 1.5rem;
     font-weight: normal;
@@ -178,7 +168,8 @@ body {
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
-.hero-about  h2 {
+
+.hero-about h2 {
     font-size: 1.5rem;
     font-weight: normal;
     color: white;
@@ -235,13 +226,14 @@ body {
     border-color: #2c5aa0;
     box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
 }
+
 .form-control-lg {
-    
     padding: 1rem 1rem;
     font-size: 1.25rem;
     line-height: 1.5;
     border-radius: 0.3rem;
 }
+
 .btn-primary {
     background-color: #2c5aa0;
     border: none;
@@ -407,15 +399,7 @@ body {
     position: relative;
 }
 
-    .card-image::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
-    }
+    
 
 .price-tag {
     position: absolute;
@@ -502,15 +486,6 @@ body {
     position: relative;
 }
 
-    .testimonials::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100px;
-        background: linear-gradient(to bottom, white, transparent);
-    }
 
 .section-header {
     text-align: center;
@@ -848,24 +823,6 @@ body {
     margin-top: 0.5rem;
 }
 
-/* Decorative Elements */
-.airplane-decoration {
-    position: absolute;
-    opacity: 0.1;
-    pointer-events: none;
-}
-
-    .airplane-decoration.top-left {
-        top: 10%;
-        left: 5%;
-        transform: rotate(-15deg);
-    }
-
-    .airplane-decoration.bottom-right {
-        bottom: 10%;
-        right: 5%;
-        transform: rotate(15deg);
-    }
 
 .balloon-decoration {
     position: absolute;

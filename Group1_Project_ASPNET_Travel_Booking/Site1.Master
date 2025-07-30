@@ -23,8 +23,25 @@
                     <li><a href="#destination">Destination</a></li>
                     <li><a href="<%= ResolveUrl("~/Travel/AboutUs") %>">About Us</a></li>
                     <li><a href="<%= ResolveUrl("~/Travel/ContactUs") %>">Contact Us</a></li>
-                    <li><a href="<%= ResolveUrl("~/Travel/Login") %>">Login</a></li>
-                    <li><a href="#book" id="book-trip-btn" class="book-trip-btn">Book Trip</a></li>
+
+                    <asp:Panel ID="pnlNotLoggedIn" runat="server" Visible="true">
+                        <li><a href="<%= ResolveUrl("~/Travel/Login") %>">Login</a></li>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlLoggedIn" runat="server" Visible="false">
+                        <li>
+                            <span class="welcome-text">Hi,
+                                <asp:Label ID="lblUsername" runat="server" Text="User"></asp:Label></span>
+                            <asp:LinkButton ID="lnkLogout" runat="server" OnClick="lnkLogout_Click" CssClass="logout-btn">
+                                Logout
+                            </asp:LinkButton>
+                        </li>
+
+                    </asp:Panel>
+                    <li>
+                        <asp:LinkButton ID="lnkBookTrip" runat="server" CssClass="book-trip-btn" OnClick="lnkBookTrip_Click">
+                         Book Trip
+                        </asp:LinkButton></li>
                 </ul>
             </nav>
         </header>
@@ -41,13 +58,13 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <h5>Contact Us</h5>
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Travel Lane, Toronto, ON</p>
-                        <p><i class="fas fa-phone"></i> +1 (416) 555-1234</p>
-                        <p><i class="fas fa-envelope"></i> support@flyora.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i>123 Travel Lane, Toronto, ON</p>
+                        <p><i class="fas fa-phone"></i>+1 (416) 555-1234</p>
+                        <p><i class="fas fa-envelope"></i>support@flyora.com</p>
                     </div>
                     <div class="col-md-4 mb-3">
                         <h5>Follow Us On Scial Media</h5>
-                        
+
                     </div>
                 </div>
                 <hr class="bg-white" />

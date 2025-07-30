@@ -1,82 +1,59 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Group1_Project_ASPNET_Travel_Booking.Default" MasterPageFile="~/Site1.Master" %>
 
 <%@ MasterType VirtualPath="~/Site1.Master" %>
+
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
-
-
     <div>
         <section class="hero">
-
             <div class="hero-content">
-                <h1 class="hero-title">Discover the world, one trip at a time</h1>
-                <asp:Button ID="btnHeroBook" runat="server" Text="Book Now" CssClass="hero-btn" />
+               
+                <asp:Panel ID="pnlLoggedInHero" runat="server" Visible="false">
+                    <h1 class="hero-title">Welcome back,
+                        <asp:Label ID="lblHeroUsername" runat="server"></asp:Label>!</h1>
+                    <p class="hero-subtitle">Ready for your next adventure?</p>
+                </asp:Panel>
 
+               
+                <asp:Panel ID="pnlNotLoggedInHero" runat="server" Visible="true">
+                    <h1 class="hero-title">Discover the world, one trip at a time</h1>
+                    <p class="hero-subtitle">Join thousands of travelers exploring amazing destinations</p>
+                </asp:Panel>
+
+                <asp:Button ID="btnHeroBook" runat="server" Text="Book Now" CssClass="hero-btn" OnClick="btnHeroBook_Click" />
             </div>
-
         </section>
+
         <section class="destinations">
-        <div class="section-header">
-            <h2>Popular Destinations You'll Love</h2>
-            <p>Explore our hand-picked destinations trending this season with the best deals and unforgettable experiences.</p>
-        </div>
-
-        <div class="destinations-grid">
-            <!-- Paris Card -->
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('<%= ResolveUrl("~/Images/paris.jpg") %>');">
-                    <div class="price-tag">Romantic city vibes From $1199</div>
-                </div>
-                <div class="card-content">
-                    <h3>Paris, France</h3>
-                    <p>Experience the city of love with its iconic landmarks, world-class cuisine, and romantic atmosphere.</p>
-                </div>
+            <div class="section-header">
+                <h2>Popular Destinations You'll Love</h2>
+                <p>Explore our hand-picked destinations trending this season with the best deals and unforgettable experiences.</p>
             </div>
 
-            <!-- Bali Card -->
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('<%= ResolveUrl("~/Images/bali.jpg") %>');"
->
-                    <div class="price-tag">Tropical island escape From $1350</div>
-                </div>
-                <div class="card-content">
-                    <h3>Bali, Indonesia</h3>
-                    <p>Discover pristine beaches, ancient temples, and vibrant culture in this tropical paradise.</p>
-                </div>
-            </div>
+            <asp:SqlDataSource ID="SqlDataSourceDestinations" runat="server"
+                ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                SelectCommand="SELECT TOP 6 DestinationID, Destination, Description, Price, AvailableSeats, CategoryID, DepartureDate, ReturnDate, ImageURL FROM Destinations"></asp:SqlDataSource>
 
-            <!-- Dubai Card -->
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('<%= ResolveUrl("~/Images/dubai.jpg") %>');"
->
-                    <div class="price-tag">Luxury urban oasis From $1499</div>
-                </div>
-                <div class="card-content">
-                    <h3>Dubai, UAE</h3>
-                    <p>Experience luxury shopping, ultramodern architecture, and world-class entertainment.</p>
-                </div>
-            </div>
-
-            <!-- Singapore Card -->
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('<%= ResolveUrl("~/Images/singapore.jpg") %>');"
->
-                    <div class="price-tag">Modern city paradise From $1410</div>
-                </div>
-                <div class="card-content">
-                    <h3>Singapore</h3>
-                    <p>A modern metropolis blending diverse cultures, innovative architecture, and incredible cuisine.</p>
-                </div>
-            </div>
-             <div class="destination-card">
-     <div class="card-image" style="background-image: url('<%= ResolveUrl("~/Images/singapore.jpg") %>');">
-         <div class="price-tag">Modern city paradise From $1410</div>
-     </div>
-     <div class="card-content">
-         <h3>Singapore</h3>
-         <p>A modern metropolis blending diverse cultures, innovative architecture, and incredible cuisine.</p>
-     </div>
- </div>
-        </div>
-    </section>
+            <asp:ListView ID="lvDestinations" runat="server" DataSourceID="SqlDataSourceDestinations"
+                DataKeyNames="DestinationID" OnItemCommand="lvDestinations_ItemCommand">
+                <LayoutTemplate>
+                    <div class="destinations-grid">
+                        <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
+                    </div>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <div class="destination-card">
+                        <div class="card-image" style="background-image: url('<%# ResolveUrl(Eval("ImageURL").ToString()) %>');">
+                            <div class="price-tag"><%# Eval("Price", "From {0:C}") %></div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%# Eval("Destination") %></h3>
+                            <p><%# Eval("Description") %></p>
+                            <asp:Button ID="btnBookDestination" runat="server" Text='<%# "Book " + Eval("Destination") %>'
+                                CssClass="btn btn-primary mt-2" CommandName="Book" CommandArgument='<%# Eval("Destination") %>' />
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:ListView>
+        </section>
     </div>
 </asp:Content>

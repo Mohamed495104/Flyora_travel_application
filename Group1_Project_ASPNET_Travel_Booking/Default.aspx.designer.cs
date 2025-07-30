@@ -15,6 +15,33 @@ namespace Group1_Project_ASPNET_Travel_Booking
     {
 
         /// <summary>
+        /// pnlLoggedInHero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlLoggedInHero;
+
+        /// <summary>
+        /// lblHeroUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHeroUsername;
+
+        /// <summary>
+        /// pnlNotLoggedInHero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNotLoggedInHero;
+
+        /// <summary>
         /// btnHeroBook control.
         /// </summary>
         /// <remarks>
@@ -22,6 +49,24 @@ namespace Group1_Project_ASPNET_Travel_Booking
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnHeroBook;
+
+        /// <summary>
+        /// SqlDataSourceDestinations control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceDestinations;
+
+        /// <summary>
+        /// lvDestinations control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvDestinations;
 
         /// <summary>
         /// Master property.

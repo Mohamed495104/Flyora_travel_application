@@ -15,6 +15,42 @@ namespace Group1_Project_ASPNET_Travel_Booking
     {
 
         /// <summary>
+        /// sqlDataSourceLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlDataSourceLogin;
+
+        /// <summary>
+        /// sqlDataSourceRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlDataSourceRegister;
+
+        /// <summary>
+        /// sqlDataSourceCheckEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlDataSourceCheckEmail;
+
+        /// <summary>
+        /// sqlDataSourceCheckUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlDataSourceCheckUsername;
+
+        /// <summary>
         /// lnkLoginTab control.
         /// </summary>
         /// <remarks>
@@ -238,15 +274,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlRole;
-
-        /// <summary>
-        /// rfvRegRole control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRegRole;
 
         /// <summary>
         /// btnRegister control.

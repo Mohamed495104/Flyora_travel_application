@@ -16,7 +16,7 @@
         </section>
         <div class="container">
             <div class="row">
-                <!-- Contact Information -->
+            
                 <div class="col-md-4 mb-4">
                     <h3 class="text-primary">Get in Touch</h3>
                     <p class="text-muted">We’d love to hear from you! Reach out to us for any inquiries or support.</p>
@@ -28,7 +28,7 @@
                     </ul>
                 </div>
 
-                <!-- Contact Form -->
+              
                 <div class="col-md-8">
                     <h3 class="text-primary">Send Us a Message</h3>
                     <div class="card p-4 shadow-sm">
@@ -62,11 +62,11 @@
                 </div>
             </div>
 
-            <!-- Map Section (Placeholder) -->
+           
             <div class="row mt-5">
                 <div class="col-12">
                     <h3 class="text-primary">Our Location</h3>
-                    <div class="map-placeholder" style="height: 300px; border-radius: 10px; text-align: center; padding-top: 120px;">
+                    <div class="map-placeholder" style="height: 300px; border-radius: 10px; text-align: center; padding-top: 120px; padding-bottom:50px; margin-bottom:100px">
                     </div>
                 </div>
             </div>
