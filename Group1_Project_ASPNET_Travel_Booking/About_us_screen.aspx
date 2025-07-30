@@ -1,18 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="About_us_screen.aspx.cs" Inherits="Group1_Project_ASPNET_Travel_Booking.About_us_screen" MasterPageFile="~/Site1.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- Hero Section -->
+   
     <section class="about-hero">
         <div class="about-hero-content">
-            <div class="breadcrumb-nav">
-                <a href="/">Home</a> / <span>About Us</span>
-            </div>
             <h1>About Flyora</h1>
             <p>We're passionate about creating unforgettable travel experiences that connect you with the world's most beautiful destinations. With over a decade of expertise, we've helped thousands of travelers discover their perfect adventure.</p>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="testimonials">
 
         <div class="testimonials-container">
