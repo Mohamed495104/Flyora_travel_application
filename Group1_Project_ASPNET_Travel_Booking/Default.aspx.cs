@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,32 +18,22 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-           
             UpdateUIBasedOnLoginStatus();
         }
 
         private void UpdateUIBasedOnLoginStatus()
         {
-            
             if (Master.IsUserLoggedIn)
             {
-               
                 pnlLoggedInHero.Visible = true;
                 pnlNotLoggedInHero.Visible = false;
-
-                
                 lblHeroUsername.Text = Master.CurrentUsername;
-
-                
                 btnHeroBook.Text = "Book Your Next Trip";
             }
             else
             {
-                
                 pnlLoggedInHero.Visible = false;
                 pnlNotLoggedInHero.Visible = true;
-
-                
                 btnHeroBook.Text = "Sign Up & Book Now";
             }
         }
@@ -51,11 +42,11 @@ namespace Group1_Project_ASPNET_Travel_Booking
         {
             if (Master.IsUserLoggedIn)
             {
-                
+                // Handle logged-in user booking logic if needed
             }
             else
             {
-                
+                Response.Redirect("~/Travel/Login");
             }
         }
 
@@ -63,15 +54,8 @@ namespace Group1_Project_ASPNET_Travel_Booking
         {
             if (e.CommandName == "Book")
             {
-                string destination = e.CommandArgument.ToString();
-                if (Master.IsUserLoggedIn)
-                {
-                   
-                }
-                else
-                {
-                    
-                }
+                string actualDestinationId = e.CommandArgument.ToString();
+                Response.Redirect($"~/Travel/DestinationDetail?DestinationID={actualDestinationId}");
             }
         }
     }

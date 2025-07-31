@@ -18,16 +18,13 @@
             <nav class="nav-container">
                 <div class="logo">Flyora</div>
                 <ul class="nav-links">
-
                     <li><a href="<%= ResolveUrl("~/Travel/Default") %>">Home</a></li>
-                    <li><a href="#destination">Destination</a></li>
+                    <li><a href="<%= ResolveUrl("~/Travel/Destination") %>">Destination</a></li>
                     <li><a href="<%= ResolveUrl("~/Travel/AboutUs") %>">About Us</a></li>
                     <li><a href="<%= ResolveUrl("~/Travel/ContactUs") %>">Contact Us</a></li>
-
                     <asp:Panel ID="pnlNotLoggedIn" runat="server" Visible="true">
                         <li><a href="<%= ResolveUrl("~/Travel/Login") %>">Login</a></li>
                     </asp:Panel>
-
                     <asp:Panel ID="pnlLoggedIn" runat="server" Visible="false">
                         <li>
                             <span class="welcome-text">Hi,
@@ -36,12 +33,12 @@
                                 Logout
                             </asp:LinkButton>
                         </li>
-
                     </asp:Panel>
                     <li>
                         <asp:LinkButton ID="lnkBookTrip" runat="server" CssClass="book-trip-btn" OnClick="lnkBookTrip_Click">
-                         Book Trip
-                        </asp:LinkButton></li>
+                            Book Trip
+                        </asp:LinkButton>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -63,12 +60,11 @@
                         <p><i class="fas fa-envelope"></i>support@flyora.com</p>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <h5>Follow Us On Scial Media</h5>
-
+                        <h5>Follow Us On Social Media</h5>
                     </div>
                 </div>
                 <hr class="bg-white" />
-                <p>&copy; 2025 Flyora | Group Members: Greeshma Prasad (123456), Mary Jain (654321), Swedha (789012), Mohammad Ijas (345678)</p>
+                <p>&copy; 2025 Flyora | Group Members: Greeshma Prasad (123456), Mary Jain (9019215), Swedha (789012), Mohammad Ijas (345678)</p>
                 <p>Travel with confidence | All rights reserved</p>
             </div>
         </footer>
