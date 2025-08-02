@@ -71,9 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About_us_screen.aspx" />
-    <Content Include="App_Data\TechCart_TravelDB.mdf" />
+    <Content Include="App_Data\TechCart_TravelDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="App_Data\TechCart_TravelDB_log.ldf">
       <DependentUpon>TechCart_TravelDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Contact_us_screen.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -82,6 +85,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Destination.aspx" />
+    <Content Include="DestinationDetail.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -140,6 +145,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Destination.aspx.cs">
+      <DependentUpon>Destination.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Destination.aspx.designer.cs">
+      <DependentUpon>Destination.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DestinationDetail.aspx.cs">
+      <DependentUpon>DestinationDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DestinationDetail.aspx.designer.cs">
+      <DependentUpon>DestinationDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

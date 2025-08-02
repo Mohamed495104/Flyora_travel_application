@@ -17,6 +17,8 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
             routes.MapPageRoute("Default", "Travel/Default", "~/Default.aspx");
             routes.MapPageRoute("About Us", "Travel/AboutUs", "~/About_us_screen.aspx");
+            routes.MapPageRoute("Destination", "Travel/Destination", "~/Destination.aspx");
+            routes.MapPageRoute("Destination Detail", "Travel/DestinationDetail", "~/DestinationDetail.aspx");
             routes.MapPageRoute("Contact Us", "Travel/ContactUs", "~/Contact_us_screen.aspx");
             routes.MapPageRoute("Login", "Travel/Login", "~/Login.aspx");
 
