@@ -399,8 +399,6 @@ body {
     position: relative;
 }
 
-    
-
 .price-tag {
     position: absolute;
     bottom: 1rem;
@@ -443,8 +441,6 @@ body {
     overflow: hidden;
 }
 
-
-
 .about-hero-content h1 {
     font-size: 3.5rem;
     font-weight: bold;
@@ -485,7 +481,6 @@ body {
     background: #f8fafc;
     position: relative;
 }
-
 
 .section-header {
     text-align: center;
@@ -767,7 +762,6 @@ body {
         display: block;
     }
 
-
 /* Statistics Section */
 .statistics {
     padding: 5rem 0;
@@ -787,8 +781,6 @@ body {
     gap: 3rem;
 }
 
-
-
 .stat-item {
     text-align: center;
 }
@@ -807,8 +799,6 @@ body {
     box-shadow: 0 10px 30px rgba(44, 90, 160, 0.1);
 }
 
-
-
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
@@ -822,7 +812,6 @@ body {
     font-weight: 600;
     margin-top: 0.5rem;
 }
-
 
 .balloon-decoration {
     position: absolute;
@@ -940,6 +929,7 @@ button {
         max-width: 100%;
     }
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .about-hero-content h1 {
@@ -970,11 +960,516 @@ button {
     }
 }
 
-@media (max-width: 480px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
+/* Modern Travel Admin Design - Updated with Theme Matching */
+.admin-hero {
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3d6f 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
+
+    .admin-hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .admin-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+
+.admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f4f8 100%);
+    min-height: 100vh;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stats-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(44, 90, 160, 0.1);
+}
+
+    .stats-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+.stats-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2c5aa0;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #2c5aa0, #1e3d6f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stats-label {
+    color: #6c757d;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.admin-tabs {
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.tab-navigation {
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+    padding: 30px;
+    text-align: center;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.tab-buttons {
+    display: inline-flex;
+    background: rgba(44, 90, 160, 0.1);
+    border-radius: 50px;
+    padding: 8px;
+    gap: 8px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #6c757d;
+    font-weight: 600;
+    padding: 15px 35px;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+    .tab-btn:hover {
+        background: rgba(44, 90, 160, 0.2);
+        color: #2c5aa0;
+        transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+        background: #2c5aa0;
+        color: white;
+        box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+    }
+
+.tab-content {
+    padding: 40px;
+}
+
+.form-section {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    padding: 35px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    border-left: 6px solid #2c5aa0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+    .form-section h4 {
+        color: #2c5aa0;
+        margin-bottom: 25px;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 1rem;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white !important;
+    color: #333 !important;
+}
+
+    .form-control:focus {
+        border-color: #2c5aa0;
+        box-shadow: 0 0 0 4px rgba(44, 90, 160, 0.1);
+        outline: none;
+        transform: translateY(-1px);
+    }
+
+    /* Enhanced Dropdown Styling */
+    select.form-control,
+    .form-control select,
+    select[id*="ddlDestinationCategory"],
+    select[id*="ddlCategory"] {
+        background: white !important;
+        color: #333 !important;
+        border: 2px solid #e9ecef !important;
+        padding: 15px 18px !important;
+        border-radius: 12px !important;
+        font-size: 1rem !important;
+        width: 100% !important;
+        appearance: auto !important;
+        -webkit-appearance: auto !important;
+        -moz-appearance: auto !important;
+        cursor: pointer !important;
+    }
+
+        select.form-control:focus,
+        select[id*="ddlDestinationCategory"]:focus,
+        select[id*="ddlCategory"]:focus {
+            border-color: #2c5aa0 !important;
+            box-shadow: 0 0 0 4px rgba(44, 90, 160, 0.1) !important;
+            outline: none !important;
+        }
+
+        select.form-control option,
+        select[id*="ddlDestinationCategory"] option,
+        select[id*="ddlCategory"] option {
+            background-color: white !important;
+            color: #333 !important;
+            padding: 10px !important;
+            font-size: 1rem !important;
+        }
+
+            select.form-control option:checked,
+            select.form-control option:selected,
+            select[id*="ddlDestinationCategory"] option:checked,
+            select[id*="ddlDestinationCategory"] option:selected {
+                background-color: #2c5aa0 !important;
+                color: white !important;
+            }
+
+            select.form-control option:hover,
+            select[id*="ddlDestinationCategory"] option:hover {
+                background-color: rgba(44, 90, 160, 0.1) !important;
+                color: #2c5aa0 !important;
+            }
+
+.btn-admin-primary {
+    background: linear-gradient(45deg, #2c5aa0, #1e3d6f);
+    border: none;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+    cursor: pointer;
+}
+
+    .btn-admin-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(44, 90, 160, 0.4);
+        color: white;
+    }
+
+.gridview-container {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin-top: 25px;
+}
+
+.gridview-header {
+    background: linear-gradient(45deg, #2c5aa0, #1e3d6f);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+    .gridview-header h4 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 1.4rem;
+    }
+
+.table {
+    margin: 0;
+    width: 100%;
+}
+
+    .table th {
+        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        color: #2c5aa0;
+        font-weight: 700;
+        border: none;
+        padding: 18px 15px;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .table td {
+        padding: 18px 15px;
+        vertical-align: middle;
+        border-bottom: 1px solid #f1f3f4;
+        text-align: center;
+    }
+
+    .table tbody tr {
+        transition: all 0.2s ease;
+    }
+
+        .table tbody tr:hover {
+            background-color: rgba(44, 90, 160, 0.05);
+            transform: scale(1.01);
+        }
+
+.image-preview {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+    .image-preview:hover {
+        transform: scale(1.1);
+        border-color: #2c5aa0;
+    }
+
+/* Updated Grid Buttons with Theme Colors */
+.btn-grid {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    margin: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.btn-edit {
+    background: linear-gradient(45deg, #2c5aa0, #4a90e2);
+    color: white;
+}
+
+    .btn-edit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(44, 90, 160, 0.4);
+        color: white;
+        background: linear-gradient(45deg, #1e3d6f, #2c5aa0);
+    }
+
+.btn-delete {
+    background: linear-gradient(45deg, #6c757d, #495057);
+    color: white;
+}
+
+    .btn-delete:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(108, 117, 125, 0.4);
+        color: white;
+        background: linear-gradient(45deg, #495057, #343a40);
+    }
+
+.btn-update {
+    background: linear-gradient(45deg, #2c5aa0, #1e3d6f);
+    color: white;
+}
+
+    .btn-update:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(44, 90, 160, 0.4);
+        color: white;
+        background: linear-gradient(45deg, #1e3d6f, #4a90e2);
+    }
+
+/* Enhanced File Upload Styling */
+.file-upload-wrapper {
+    position: relative;
+    display: block;
+}
+
+.file-upload-label {
+    display: block;
+    padding: 15px 20px;
+    background: linear-gradient(45deg, #2c5aa0, #1e3d6f);
+    color: white !important;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid transparent;
+}
+
+    .file-upload-label:hover {
+        background: linear-gradient(45deg, #1e3d6f, #4a90e2);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+        color: white !important;
+    }
+
+.file-upload-input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Alert Messages */
+.alert-admin {
+    border: none;
+    border-radius: 15px;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    font-weight: 600;
+}
+
+.alert-success {
+    background: linear-gradient(45deg, #d4edda, #c3e6cb);
+    color: #155724;
+    border-left: 5px solid #28a745;
+}
+
+.alert-danger {
+    background: linear-gradient(45deg, #f8d7da, #f1b0b7);
+    color: #721c24;
+    border-left: 5px solid #dc3545;
+}
+
+.alert-info {
+    background: linear-gradient(45deg, #d1ecf1, #bee5eb);
+    color: #0c5460;
+    border-left: 5px solid #2c5aa0;
+}
+
+.alert-warning {
+    background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+    color: #856404;
+    border-left: 5px solid #ffc107;
+}
+
+.validation-error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+/* Final Clean Dropdown Styling - Keep This Version */
+
+/* Main dropdown styling */
+select[id*="ddlDestinationCategory"],
+select[id*="ddlCategory"],
+select.form-control {
+    /* Basic styling */
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    /* Text visibility fixes */
+    -webkit-text-fill-color: #333333 !important;
+    -moz-text-fill-color: #333333 !important;
+    text-shadow: none !important;
+    /* Font and layout */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 12px 18px !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+    min-height: 48px !important;
+    cursor: pointer !important;
+    /* Keep browser default arrow (clean, no conflicts) */
+    appearance: auto !important;
+    -webkit-appearance: auto !important;
+    -moz-appearance: auto !important;
+    /* Clean text properties */
+    text-align: left !important;
+    opacity: 1 !important;
+}
+
+    /* Focus state */
+    select[id*="ddlDestinationCategory"]:focus,
+    select[id*="ddlCategory"]:focus {
+        border-color: #2c5aa0 !important;
+        box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1) !important;
+        outline: none !important;
+        color: #333333 !important;
+        -webkit-text-fill-color: #333333 !important;
+    }
+
+    /* Dropdown options styling */
+    select[id*="ddlDestinationCategory"] option,
+    select[id*="ddlCategory"] option {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+        font-weight: normal !important;
+    }
+
+        /* Selected option in dropdown */
+        select[id*="ddlDestinationCategory"] option:checked,
+        select[id*="ddlCategory"] option:checked {
+            background-color: #2c5aa0 !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -999,6 +1494,37 @@ button {
         top: 10%;
         right: 5%;
     }
+
+    .admin-hero h1 {
+        font-size: 2rem;
+    }
+
+    .admin-container {
+        padding: 20px 10px;
+    }
+
+    .tab-content {
+        padding: 20px;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-grid {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        margin: 1px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1013,4 +1539,27 @@ button {
     .search-container {
         padding: 1.5rem;
     }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-buttons {
+        flex-direction: column;
+    }
+
+    .btn-grid {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+        display: block;
+        margin: 2px 0;
+    }
+
+
+
+
+
+
+
+
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 
 namespace Group1_Project_ASPNET_Travel_Booking
 {
@@ -12,6 +13,13 @@ namespace Group1_Project_ASPNET_Travel_Booking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            // TEMPORARY DEBUG: Show all session values
+            Debug.WriteLine("Session contents:");
+            foreach (string key in Session.Keys)
+            {
+                Debug.WriteLine($"{key} = {Session[key]}");
+            }
             if (!IsPostBack)
             {
                 
@@ -63,16 +71,13 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 string email = txtLoginEmail.Text.Trim();
                 string password = txtLoginPassword.Text.Trim();
 
-                
                 sqlDataSourceLogin.SelectParameters["Email"].DefaultValue = email;
                 sqlDataSourceLogin.SelectParameters["Password"].DefaultValue = password;
 
-                
                 DataView dv = (DataView)sqlDataSourceLogin.Select(DataSourceSelectArguments.Empty);
 
                 if (dv.Table.Rows.Count > 0)
                 {
-                    
                     DataRow user = dv.Table.Rows[0];
 
                     // Store user information in session
@@ -80,12 +85,14 @@ namespace Group1_Project_ASPNET_Travel_Booking
                     Session["Username"] = user["Username"];
                     Session["Email"] = user["Email"];
                     Session["Role"] = user["Role"];
+                    Session.Timeout = 60; // Set session timeout
 
-                    
                     string role = user["Role"].ToString().ToLower();
                     if (role == "admin")
                     {
-                       //admin
+                        // FIX: Actually redirect to admin page
+                        Response.Redirect("~/Admin.aspx", false);
+                        Context.ApplicationInstance.CompleteRequest();
                     }
                     else
                     {
@@ -94,13 +101,11 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 }
                 else
                 {
-                   
                     lblLoginError.Text = "Invalid email or password. Please try again.";
                     lblLoginError.Visible = true;
                 }
             }
         }
-
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             try

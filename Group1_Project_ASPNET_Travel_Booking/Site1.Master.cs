@@ -12,7 +12,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
         protected void Page_Load(object sender, EventArgs e)
         {
             UpdateNavigationBasedOnLoginStatus();
-
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -40,7 +39,19 @@ namespace Group1_Project_ASPNET_Travel_Booking
                     if (role.ToLower() == "admin")
                     {
                         lblUsername.Text += " (Admin)";
+                        // Show admin dashboard link for admin users
+                        pnlAdminLink.Visible = true;
                     }
+                    else
+                    {
+                        // Hide admin dashboard link for regular users
+                        pnlAdminLink.Visible = false;
+                    }
+                }
+                else
+                {
+                    // Hide admin dashboard link if no role
+                    pnlAdminLink.Visible = false;
                 }
             }
             else
@@ -48,6 +59,8 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 // User is not logged in
                 pnlLoggedIn.Visible = false;
                 pnlNotLoggedIn.Visible = true;
+                // Hide admin dashboard link when not logged in
+                pnlAdminLink.Visible = false;
             }
         }
 
@@ -75,7 +88,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
             catch (Exception ex)
             {
-
                 Response.Redirect("~/Default.aspx", false);
             }
         }
@@ -86,7 +98,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
             UpdateNavigationBasedOnLoginStatus();
         }
 
-
         public bool IsUserLoggedIn
         {
             get
@@ -94,7 +105,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 return Session["UserID"] != null && Session["Username"] != null;
             }
         }
-
 
         public string CurrentUsername
         {
@@ -104,7 +114,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
         }
 
-
         public string CurrentUserRole
         {
             get
@@ -112,7 +121,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 return Session["Role"]?.ToString() ?? string.Empty;
             }
         }
-
 
         public string CurrentUserID
         {
