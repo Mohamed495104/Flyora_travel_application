@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 namespace Group1_Project_ASPNET_Travel_Booking
@@ -11,7 +12,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             {
                 if (string.IsNullOrEmpty(Request.QueryString["DestinationID"]))
                 {
-                    Response.Redirect("~/Travel/Destination");
+                    Response.Redirect("~/Travel/Destination.aspx");
                 }
             }
         }
@@ -21,6 +22,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             if (e.CommandName == "AddToCart")
             {
                 AddToCart();
+                return;
             }
         }
 
@@ -29,8 +31,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
             if (e.Exception == null)
             {
                 ShowMessage("Travel dates updated successfully! You can now proceed to book.", "alert-success");
-                // Optionally redirect to booking page
-                // Response.Redirect("~/Booking/BookingForm.aspx?DestinationID=" + Request.QueryString["DestinationID"]);
             }
             else
             {
@@ -51,6 +51,18 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 TextBox txtReturnDate = dv.FindControl("txtReturnDate") as TextBox;
                 DropDownList ddlTravelers = dv.FindControl("ddlTravelers") as DropDownList;
 
+                if (txtDepartureDate == null || txtReturnDate == null || ddlTravelers == null)
+                {
+                    ShowMessage("Error: Unable to find form controls. Please try again.", "alert-danger");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtDepartureDate.Text) || string.IsNullOrEmpty(txtReturnDate.Text))
+                {
+                    ShowMessage("Please select both departure and return dates.", "alert-warning");
+                    return;
+                }
+
                 DateTime departureDate = DateTime.Parse(txtDepartureDate.Text);
                 DateTime returnDate = DateTime.Parse(txtReturnDate.Text);
                 int travelers = Convert.ToInt32(ddlTravelers.SelectedValue);
@@ -62,9 +74,20 @@ namespace Group1_Project_ASPNET_Travel_Booking
                     return;
                 }
 
+                if (returnDate <= departureDate)
+                {
+                    ShowMessage("Return date must be after departure date.", "alert-danger");
+                    return;
+                }
+
                 // Add to cart
                 AddToCartSession(destinationId, departureDate, returnDate, travelers);
-                ShowMessage($"Destination added to cart for {travelers} traveler(s)! Departure: {departureDate:MMM dd, yyyy}, Return: {returnDate:MMM dd, yyyy}", "alert-success");
+
+                // Refresh the master page cart count
+                RefreshMasterPageCartCount();
+
+                // Redirect to cart page after adding to cart successfully
+                Response.Redirect("~/Cart.aspx");
             }
             catch (Exception ex)
             {
@@ -76,10 +99,10 @@ namespace Group1_Project_ASPNET_Travel_Booking
         {
             if (Session["Cart"] == null)
             {
-                Session["Cart"] = new System.Collections.Generic.List<CartItem>();
+                Session["Cart"] = new List<CartItem>();
             }
 
-            var cart = (System.Collections.Generic.List<CartItem>)Session["Cart"];
+            var cart = (List<CartItem>)Session["Cart"];
 
             var existingItem = cart.Find(x => x.DestinationId == destinationId);
             if (existingItem != null)
@@ -87,6 +110,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 existingItem.DepartureDate = departureDate;
                 existingItem.ReturnDate = returnDate;
                 existingItem.Travelers = travelers;
+                existingItem.AddedDate = DateTime.Now;
             }
             else
             {
@@ -101,6 +125,21 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
 
             Session["Cart"] = cart;
+        }
+
+        private void RefreshMasterPageCartCount()
+        {
+            try
+            {
+                if (Master is Site1 masterPage)
+                {
+                    masterPage.RefreshNavigation();
+                }
+            }
+            catch (Exception)
+            {
+                // Ignore master page refresh errors
+            }
         }
 
         private void ShowMessage(string message, string alertClass)

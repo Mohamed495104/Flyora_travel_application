@@ -79,6 +79,9 @@
       <DependentUpon>TechCart_TravelDB.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="BookingSuccess.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="checkoutForm.aspx" />
     <Content Include="Contact_us_screen.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -148,6 +151,27 @@
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BookingSuccess.aspx.cs">
+      <DependentUpon>BookingSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingSuccess.aspx.designer.cs">
+      <DependentUpon>BookingSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkoutForm.aspx.cs">
+      <DependentUpon>checkoutForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkoutForm.aspx.designer.cs">
+      <DependentUpon>checkoutForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact_us_screen.aspx.cs">
       <DependentUpon>Contact_us_screen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

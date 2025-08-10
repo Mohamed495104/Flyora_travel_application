@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -17,10 +19,18 @@
             <nav class="nav-container">
                 <div class="logo">Flyora</div>
                 <ul class="nav-links">
-                    <li><a href="<%= ResolveUrl("~/Travel/Default") %>">Home</a></li>
-                    <li><a href="<%= ResolveUrl("~/Travel/Destination") %>">Destination</a></li>
-                    <li><a href="<%= ResolveUrl("~/Travel/AboutUs") %>">About Us</a></li>
-                    <li><a href="<%= ResolveUrl("~/Travel/ContactUs") %>">Contact Us</a></li>
+    <li><a href="<%= ResolveUrl("~/Travel/Default") %>">Home</a></li>
+    <li><a href="<%= ResolveUrl("~/Travel/Destination") %>">Destination</a></li>
+    <li><a href="<%= ResolveUrl("~/Travel/AboutUs") %>">About Us</a></li>
+    <li><a href="<%= ResolveUrl("~/Travel/ContactUs") %>">Contact Us</a></li>
+    
+    <!-- Cart Link -->
+    <li>
+        <a href="<%= ResolveUrl("~/Cart.aspx") %>" class="cart-link">
+            Bookings
+            <asp:Label ID="lblCartCount" runat="server" CssClass="cart-badge" Text="0" Visible="false"></asp:Label>
+        </a>
+    </li>
                     
                     <!-- Admin Dashboard Link (only shows for admin users) -->
                     <asp:Panel ID="pnlAdminLink" runat="server" Visible="false">
@@ -67,7 +77,7 @@
                     </div>
                 </div>
                 <hr class="bg-white" />
-                <p>&copy; 2025 Flyora | Group Members: Greeshma Prasad (123456), Mary Jain (9019215), Swedha (8995269), Mohammad Ijas (345678)</p>
+                <p>&copy; 2025 Flyora | Group Members: Greeshma Prasad (123456), Mary Jain (9019215), Swedha (8995269), Mohammad Ijas (8917822)</p>
                 <p>Travel with confidence | All rights reserved</p>
             </div>
         </footer>

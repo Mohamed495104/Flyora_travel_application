@@ -12,12 +12,14 @@ namespace Group1_Project_ASPNET_Travel_Booking
         protected void Page_Load(object sender, EventArgs e)
         {
             UpdateNavigationBasedOnLoginStatus();
+            UpdateCartCount();
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
             // Update navigation on every page load to ensure current state
             UpdateNavigationBasedOnLoginStatus();
+            UpdateCartCount();
         }
 
         private void UpdateNavigationBasedOnLoginStatus()
@@ -64,11 +66,43 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
         }
 
+        private void UpdateCartCount()
+        {
+            try
+            {
+                int cartCount = GetCartItemCount();
+
+                if (cartCount > 0)
+                {
+                    lblCartCount.Text = cartCount.ToString();
+                    lblCartCount.Visible = true;
+                }
+                else
+                {
+                    lblCartCount.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                lblCartCount.Visible = false;
+            }
+        }
+
+        private int GetCartItemCount()
+        {
+            if (Session["Cart"] != null)
+            {
+                var cart = (List<CartItem>)Session["Cart"];
+                return cart.Count;
+            }
+            return 0;
+        }
+
         protected void lnkLogout_Click(object sender, EventArgs e)
         {
             try
             {
-                // Clear all session variables
+                // Clear all session variables including cart
                 Session.Clear();
                 Session.Abandon();
 
@@ -96,6 +130,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
         public void RefreshNavigation()
         {
             UpdateNavigationBasedOnLoginStatus();
+            UpdateCartCount();
         }
 
         public bool IsUserLoggedIn
@@ -134,8 +169,8 @@ namespace Group1_Project_ASPNET_Travel_Booking
         {
             if (Session["UserID"] != null)
             {
-                // User is logged in
-                //Response.Redirect("~/Travel/Destination.aspx");
+                // User is logged in, redirect to destinations
+                Response.Redirect("~/Travel/Destination");
             }
             else
             {

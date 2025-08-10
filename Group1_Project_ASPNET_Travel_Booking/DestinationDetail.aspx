@@ -7,13 +7,15 @@
             <h2 class="display-4 fw-bold text-dark mb-3">Destination Details</h2>
             <p class="lead text-muted">Complete information about your selected destination with pricing and availability.</p>
         </div>
-        <div class="container">
-            <asp:DetailsView ID="dvDestination" runat="server" 
-                DataSourceID="SqlDataSourceDestination" 
-                DataKeyNames="DestinationID"
-                CssClass="table table-striped table-bordered"
-                AutoGenerateRows="False"
-                DefaultMode="Edit">
+        <di<asp:DetailsView ID="dvDestination" runat="server" 
+    DataSourceID="SqlDataSourceDestination" 
+    DataKeyNames="DestinationID"
+    CssClass="table table-striped table-bordered"
+    AutoGenerateRows="False"
+    DefaultMode="Edit"
+    OnItemCommand="dvDestination_ItemCommand"
+    OnItemUpdated="dvDestination_ItemUpdated">
+
                 <Fields>
                     <asp:TemplateField>
                         <ItemTemplate>
