@@ -22,13 +22,13 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
             if (!IsPostBack)
             {
-                
+
                 ViewState["ActiveTab"] = "Login";
                 ShowLoginTab();
             }
             else
             {
-                
+
                 string activeTab = ViewState["ActiveTab"] as string ?? "Login";
                 if (activeTab == "Register")
                 {
@@ -44,7 +44,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
         protected void lnkTab_Click(object sender, EventArgs e)
         {
             string tab = ((LinkButton)sender).CommandArgument;
-            ViewState["ActiveTab"] = tab; 
+            ViewState["ActiveTab"] = tab;
             ClearAllValidators();
 
             if (tab == "Login")
@@ -59,7 +59,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
         protected void lnkSwitchToRegister_Click(object sender, EventArgs e)
         {
-            ViewState["ActiveTab"] = "Register"; 
+            ViewState["ActiveTab"] = "Register";
             ClearAllValidators();
             ShowRegisterTab();
         }
@@ -85,12 +85,12 @@ namespace Group1_Project_ASPNET_Travel_Booking
                     Session["Username"] = user["Username"];
                     Session["Email"] = user["Email"];
                     Session["Role"] = user["Role"];
-                    Session.Timeout = 60; // Set session timeout
+                    Session.Timeout = 60;
 
                     string role = user["Role"].ToString().ToLower();
                     if (role == "admin")
                     {
-                        // FIX: Actually redirect to admin page
+
                         Response.Redirect("~/Admin.aspx", false);
                         Context.ApplicationInstance.CompleteRequest();
                     }
@@ -110,20 +110,20 @@ namespace Group1_Project_ASPNET_Travel_Booking
         {
             try
             {
-              
+
                 ViewState["ActiveTab"] = "Register";
 
                 lblRegError.Visible = false;
                 lblRegError.Text = "";
 
-                
+
                 ShowRegisterTab();
 
-                
+
                 Page.Validate("RegisterGroup");
                 if (!Page.IsValid)
                 {
-                  
+
                     return;
                 }
 
@@ -132,7 +132,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 string password = txtRegPassword.Text.Trim();
                 string role = ddlRole.SelectedValue;
 
-               
+
                 if (string.IsNullOrWhiteSpace(username))
                 {
                     lblRegError.Text = "Username is required.";
@@ -161,7 +161,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
                     return;
                 }
 
-              
+
                 try
                 {
                     sqlDataSourceCheckEmail.SelectParameters["Email"].DefaultValue = email;
@@ -207,30 +207,30 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 {
                     lblRegError.Text = "Error checking username: " + usernameEx.Message;
                     lblRegError.Visible = true;
-                   
+
                     return;
                 }
 
-                
+
                 try
                 {
-                   
+
                     sqlDataSourceRegister.InsertParameters["Username"].DefaultValue = username;
                     sqlDataSourceRegister.InsertParameters["Email"].DefaultValue = email;
                     sqlDataSourceRegister.InsertParameters["Password"].DefaultValue = password;
                     sqlDataSourceRegister.InsertParameters["Role"].DefaultValue = role;
                     sqlDataSourceRegister.InsertParameters["CreatedAt"].DefaultValue = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                   
+
                     int result = sqlDataSourceRegister.Insert();
 
-                    
+
                     sqlDataSourceRegister.SelectParameters["Email"].DefaultValue = email;
                     DataView dvNewUser = (DataView)sqlDataSourceRegister.Select(DataSourceSelectArguments.Empty);
 
                     if (dvNewUser != null && dvNewUser.Table.Rows.Count > 0)
                     {
-                       
+
                         DataRow newUser = dvNewUser.Table.Rows[0];
 
                         // Store user information in session
@@ -239,17 +239,19 @@ namespace Group1_Project_ASPNET_Travel_Booking
                         Session["Email"] = newUser["Email"];
                         Session["Role"] = newUser["Role"];
 
-                       
+
                         ClearRegistrationForm();
 
-                       
-                        if (role.ToLower() == "admin")
+
+                        if (role == "admin")
                         {
-                            Response.Redirect("AdminDashboard.aspx");
+
+                            Response.Redirect("~/Admin.aspx", false);
+                            Context.ApplicationInstance.CompleteRequest();
                         }
                         else
                         {
-                            Response.Redirect("Default.aspx");
+                            Response.Redirect("~/Travel/Default");
                         }
                     }
                     else
@@ -268,12 +270,12 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
             catch (Exception ex)
             {
-              
+
                 lblRegError.Text = "Registration failed: " + ex.Message;
                 lblRegError.Visible = true;
-                ShowRegisterTab(); 
+                ShowRegisterTab();
 
-      
+
             }
         }
 
@@ -295,13 +297,13 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
         private void ClearAllValidators()
         {
-            
+
             foreach (BaseValidator validator in Page.Validators)
             {
                 validator.IsValid = true;
             }
 
-           
+
             lblLoginError.Visible = false;
             lblRegError.Visible = false;
         }

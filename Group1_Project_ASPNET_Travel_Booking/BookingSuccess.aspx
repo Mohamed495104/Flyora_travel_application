@@ -38,7 +38,7 @@
                 </dl>
 
                 <div class="text-end mt-4">
-                    <a href="~/Default.aspx" class="btn btn-outline-primary">Return to Home</a>
+                    <a href="<%= ResolveUrl("~/Travel/Default") %>" class="btn btn-outline-primary">Return to Home</a>
                 </div>
             </asp:Panel>
 
