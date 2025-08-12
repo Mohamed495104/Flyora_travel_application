@@ -184,40 +184,6 @@
     </section>
 
     <section class="statistics">
-
-
-
-        <div class="stats-container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="circle">
-                        <div class="stat-number">12</div>
-                    </div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-
-                <div class="stat-item">
-                    <div class="circle">
-                        <div class="stat-number">97%</div>
-                    </div>
-                    <div class="stat-label">Retention Rate</div>
-                </div>
-
-                <div class="stat-item">
-                    <div class="circle">
-                        <div class="stat-number">8K</div>
-                    </div>
-                    <div class="stat-label">Tour Completed</div>
-                </div>
-
-                <div class="stat-item">
-                    <div class="circle">
-                        <div class="stat-number">19K</div>
-                    </div>
-                    <div class="stat-label">Happy Travellers</div>
-                </div>
-            </div>
-        </div>
     </section>
 </asp:Content>
 
