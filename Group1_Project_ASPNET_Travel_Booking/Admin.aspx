@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="Group1_Project_ASPNET_Travel_Booking.Admin" MasterPageFile="~/Site1.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <!-- No inline styles needed - everything is in Site.css -->
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -53,11 +52,11 @@
         <div class="admin-tabs">
             <div class="tab-navigation">
                 <div class="tab-buttons">
-                    <asp:LinkButton ID="lnkDestinationsTab" runat="server" CssClass="tab-btn active" 
+                    <asp:LinkButton ID="lnkDestinationsTab" runat="server" CssClass="tab-btn active"
                         OnClick="lnkTab_Click" CommandArgument="Destinations" CausesValidation="false">
                         🗺️ Destinations
                     </asp:LinkButton>
-                    <asp:LinkButton ID="lnkCategoriesTab" runat="server" CssClass="tab-btn" 
+                    <asp:LinkButton ID="lnkCategoriesTab" runat="server" CssClass="tab-btn"
                         OnClick="lnkTab_Click" CommandArgument="Categories" CausesValidation="false">
                         🏷️ Categories
                     </asp:LinkButton>
@@ -73,59 +72,59 @@
                         <div class="form-group">
                             <label>Destination Name</label>
                             <asp:TextBox ID="txtDestinationName" runat="server" CssClass="form-control" placeholder="Enter destination name"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvDestinationName" runat="server" 
-                                ControlToValidate="txtDestinationName" 
-                                ErrorMessage="Destination name is required" 
-                                CssClass="validation-error" 
+                            <asp:RequiredFieldValidator ID="rfvDestinationName" runat="server"
+                                ControlToValidate="txtDestinationName"
+                                ErrorMessage="Destination name is required"
+                                CssClass="validation-error"
                                 ValidationGroup="DestinationGroup" />
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <asp:TextBox ID="txtDestinationDescription" runat="server" CssClass="form-control" 
+                            <asp:TextBox ID="txtDestinationDescription" runat="server" CssClass="form-control"
                                 TextMode="MultiLine" Rows="3" placeholder="Enter destination description"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvDestinationDescription" runat="server" 
-                                ControlToValidate="txtDestinationDescription" 
-                                ErrorMessage="Description is required" 
-                                CssClass="validation-error" 
+                            <asp:RequiredFieldValidator ID="rfvDestinationDescription" runat="server"
+                                ControlToValidate="txtDestinationDescription"
+                                ErrorMessage="Description is required"
+                                CssClass="validation-error"
                                 ValidationGroup="DestinationGroup" />
                         </div>
 
-           <div class="form-group">
-    <label>Category</label>
-    <div class="custom-dropdown-wrapper">
-        <asp:DropDownList ID="ddlDestinationCategory" runat="server" 
-            CssClass="form-control dropdown-override">
-        </asp:DropDownList>
-    </div>
-</div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <div class="custom-dropdown-wrapper">
+                                <asp:DropDownList ID="ddlDestinationCategory" runat="server"
+                                    CssClass="form-control dropdown-override">
+                                </asp:DropDownList>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label>Price ($)</label>
-                            <asp:TextBox ID="txtDestinationPrice" runat="server" CssClass="form-control" 
+                            <asp:TextBox ID="txtDestinationPrice" runat="server" CssClass="form-control"
                                 placeholder="0.00" TextMode="Number" step="0.01"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvDestinationPrice" runat="server" 
-                                ControlToValidate="txtDestinationPrice" 
-                                ErrorMessage="Price is required" 
-                                CssClass="validation-error" 
+                            <asp:RequiredFieldValidator ID="rfvDestinationPrice" runat="server"
+                                ControlToValidate="txtDestinationPrice"
+                                ErrorMessage="Price is required"
+                                CssClass="validation-error"
                                 ValidationGroup="DestinationGroup" />
                         </div>
                         <div class="form-group">
                             <label>Available Seats</label>
-                            <asp:TextBox ID="txtAvailableSeats" runat="server" CssClass="form-control" 
+                            <asp:TextBox ID="txtAvailableSeats" runat="server" CssClass="form-control"
                                 placeholder="0" TextMode="Number"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvAvailableSeats" runat="server" 
-                                ControlToValidate="txtAvailableSeats" 
-                                ErrorMessage="Available seats is required" 
-                                CssClass="validation-error" 
+                            <asp:RequiredFieldValidator ID="rfvAvailableSeats" runat="server"
+                                ControlToValidate="txtAvailableSeats"
+                                ErrorMessage="Available seats is required"
+                                CssClass="validation-error"
                                 ValidationGroup="DestinationGroup" />
                         </div>
                         <div class="form-group">
                             <label>Departure Date</label>
                             <asp:TextBox ID="txtDepartureDate" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvDepartureDate" runat="server" 
-                                ControlToValidate="txtDepartureDate" 
-                                ErrorMessage="Departure date is required" 
-                                CssClass="validation-error" 
+                            <asp:RequiredFieldValidator ID="rfvDepartureDate" runat="server"
+                                ControlToValidate="txtDepartureDate"
+                                ErrorMessage="Departure date is required"
+                                CssClass="validation-error"
                                 ValidationGroup="DestinationGroup" />
                         </div>
                         <div class="form-group">
@@ -143,8 +142,8 @@
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <asp:Button ID="btnAddDestination" runat="server" Text="✈️ Add Destination" 
-                            CssClass="btn-admin-primary" ValidationGroup="DestinationGroup" 
+                        <asp:Button ID="btnAddDestination" runat="server" Text="✈️ Add Destination"
+                            CssClass="btn-admin-primary" ValidationGroup="DestinationGroup"
                             OnClick="btnAddDestination_Click" />
                     </div>
                 </div>
@@ -155,9 +154,9 @@
                         <h4>🎯 Manage Destinations</h4>
                     </div>
                     <div style="overflow-x: auto;">
-                        <asp:GridView ID="gvDestinations" runat="server" 
+                        <asp:GridView ID="gvDestinations" runat="server"
                             CssClass="table"
-                            AutoGenerateColumns="False" 
+                            AutoGenerateColumns="False"
                             DataKeyNames="DestinationID"
                             OnRowEditing="gvDestinations_RowEditing"
                             OnRowUpdating="gvDestinations_RowUpdating"
@@ -173,7 +172,7 @@
                                     </ItemTemplate>
                                     <EditItemTemplate>
                                         <img src='<%# ResolveUrl(Eval("ImageURL").ToString()) %>' alt='<%# Eval("Destination") %>' class="image-preview" />
-                                        <asp:FileUpload ID="fuEditImage" runat="server" CssClass="form-control mt-2" style="font-size: 0.8rem;" />
+                                        <asp:FileUpload ID="fuEditImage" runat="server" CssClass="form-control mt-2" Style="font-size: 0.8rem;" />
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Destination">
@@ -211,7 +210,7 @@
                                 <asp:TemplateField HeaderText="Actions" ItemStyle-Width="160px">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit" Text="✏️ Edit" CssClass="btn-grid btn-edit" />
-                                        <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" Text="🗑️ Delete" CssClass="btn-grid btn-delete" 
+                                        <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" Text="🗑️ Delete" CssClass="btn-grid btn-delete"
                                             OnClientClick="return confirm('Are you sure you want to delete this destination?');" />
                                     </ItemTemplate>
                                     <EditItemTemplate>
@@ -234,26 +233,26 @@
                         <div class="form-group">
                             <label>Category Name</label>
                             <asp:TextBox ID="txtCategoryName" runat="server" CssClass="form-control" placeholder="Enter category name"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvCategoryName" runat="server" 
-                                ControlToValidate="txtCategoryName" 
-                                ErrorMessage="Category name is required" 
-                                CssClass="validation-error" 
+                            <asp:RequiredFieldValidator ID="rfvCategoryName" runat="server"
+                                ControlToValidate="txtCategoryName"
+                                ErrorMessage="Category name is required"
+                                CssClass="validation-error"
                                 ValidationGroup="CategoryGroup" />
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <asp:TextBox ID="txtCategoryDescription" runat="server" CssClass="form-control" 
+                            <asp:TextBox ID="txtCategoryDescription" runat="server" CssClass="form-control"
                                 TextMode="MultiLine" Rows="3" placeholder="Enter category description"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvCategoryDescription" runat="server" 
-                                ControlToValidate="txtCategoryDescription" 
-                                ErrorMessage="Description is required" 
-                                CssClass="validation-error" 
+                            <asp:RequiredFieldValidator ID="rfvCategoryDescription" runat="server"
+                                ControlToValidate="txtCategoryDescription"
+                                ErrorMessage="Description is required"
+                                CssClass="validation-error"
                                 ValidationGroup="CategoryGroup" />
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <asp:Button ID="btnAddCategory" runat="server" Text="🏷️ Add Category" 
-                            CssClass="btn-admin-primary" ValidationGroup="CategoryGroup" 
+                        <asp:Button ID="btnAddCategory" runat="server" Text="🏷️ Add Category"
+                            CssClass="btn-admin-primary" ValidationGroup="CategoryGroup"
                             OnClick="btnAddCategory_Click" />
                     </div>
                 </div>
@@ -264,9 +263,9 @@
                         <h4>🎯 Manage Categories</h4>
                     </div>
                     <div style="overflow-x: auto;">
-                        <asp:GridView ID="gvCategories" runat="server" 
+                        <asp:GridView ID="gvCategories" runat="server"
                             CssClass="table"
-                            AutoGenerateColumns="False" 
+                            AutoGenerateColumns="False"
                             DataKeyNames="CategoryID"
                             OnRowEditing="gvCategories_RowEditing"
                             OnRowUpdating="gvCategories_RowUpdating"
@@ -282,10 +281,10 @@
                                     </ItemTemplate>
                                     <EditItemTemplate>
                                         <asp:TextBox ID="txtEditCategoryName" runat="server" Text='<%# Bind("CategoryName") %>' CssClass="form-control" />
-                                        <asp:RequiredFieldValidator ID="rfvEditCategoryName" runat="server" 
-                                            ControlToValidate="txtEditCategoryName" 
-                                            ErrorMessage="Category name is required" 
-                                            CssClass="validation-error" 
+                                        <asp:RequiredFieldValidator ID="rfvEditCategoryName" runat="server"
+                                            ControlToValidate="txtEditCategoryName"
+                                            ErrorMessage="Category name is required"
+                                            CssClass="validation-error"
                                             ValidationGroup="EditCategoryGroup" />
                                     </EditItemTemplate>
                                 </asp:TemplateField>
@@ -295,17 +294,17 @@
                                     </ItemTemplate>
                                     <EditItemTemplate>
                                         <asp:TextBox ID="txtEditCategoryDescription" runat="server" Text='<%# Bind("Description") %>' CssClass="form-control" TextMode="MultiLine" Rows="3" />
-                                        <asp:RequiredFieldValidator ID="rfvEditCategoryDescription" runat="server" 
-                                            ControlToValidate="txtEditCategoryDescription" 
-                                            ErrorMessage="Description is required" 
-                                            CssClass="validation-error" 
+                                        <asp:RequiredFieldValidator ID="rfvEditCategoryDescription" runat="server"
+                                            ControlToValidate="txtEditCategoryDescription"
+                                            ErrorMessage="Description is required"
+                                            CssClass="validation-error"
                                             ValidationGroup="EditCategoryGroup" />
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Actions" ItemStyle-Width="160px">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnEditCategory" runat="server" CommandName="Edit" Text="✏️ Edit" CssClass="btn-grid btn-edit" />
-                                        <asp:LinkButton ID="btnDeleteCategory" runat="server" CommandName="Delete" Text="🗑️ Delete" CssClass="btn-grid btn-delete" 
+                                        <asp:LinkButton ID="btnDeleteCategory" runat="server" CommandName="Delete" Text="🗑️ Delete" CssClass="btn-grid btn-delete"
                                             OnClientClick="return confirm('Are you sure you want to delete this category? This will also delete all destinations in this category.');" />
                                     </ItemTemplate>
                                     <EditItemTemplate>
@@ -330,9 +329,9 @@
                     const label = this.nextElementSibling;
                     const fileName = this.files[0] ? this.files[0].name : '📷 Choose Image File';
                     label.innerHTML = fileName;
-                    label.style.background = 'linear-gradient(45deg, #a8e6cf, #dcedc1)'; 
+                    label.style.background = 'linear-gradient(45deg, #a8e6cf, #dcedc1)';
                     setTimeout(() => {
-                        label.style.background = 'linear-gradient(45deg, #f8f9fa, #dee2e6)'; 
+                        label.style.background = 'linear-gradient(45deg, #f8f9fa, #dee2e6)';
                     }, 2000);
                 });
             });

@@ -1,5 +1,5 @@
 ﻿/*
- * Group Members: Greeshma Prasad (123456), Mary Jain (9019215), Swedha (8995269), Mohammad Ijas (345678)
+ * Group Members: Greeshma Prasad (9042892), Mary Jain (9019215), Swedha (8995269), Mohammad Ijas (8917822)
  * Travel Booking Admin Panel
  */
 
@@ -13,15 +13,14 @@ using System.Web.UI.WebControls;
 
 namespace Group1_Project_ASPNET_Travel_Booking
 {
-    /// <summary>
-    /// </summary>
+
     public partial class Admin : System.Web.UI.Page
     {
         private string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-        /// <summary>
+
         /// Page load with admin authentication and data loading
-        /// </summary>
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Check if user is admin
@@ -34,7 +33,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 return;
             }
 
-            // Only load data on first visit (not on button clicks)
+            // Only load data on first visit 
             if (!IsPostBack)
             {
                 // Activate the "Destinations" tab by default
@@ -50,9 +49,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
         }
 
-        /// <summary>
-        /// Pre-render event to ensure panel visibility with inline styles (CSS override fix)
-        /// </summary>
+
         protected void Page_PreRender(object sender, EventArgs e)
         {
             // Ensure panel visibility overrides any conflicting CSS
@@ -77,9 +74,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
         #region Authentication
 
-        /// <summary>
-        /// Checks if current user has admin privileges
-        /// </summary>
+
         private bool IsUserAdmin()
         {
             if (Session["UserID"] != null && Session["Role"] != null)
@@ -94,9 +89,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
         #region Statistics Dashboard
 
-        /// <summary>
-        /// Loads real-time statistics for dashboard
-        /// </summary>
         private void LoadStatistics()
         {
             try
@@ -132,9 +124,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
         #region Tab Management
 
-        /// <summary>
-        /// Enhanced tab switching with proper visibility control
-        /// </summary>
         protected void lnkTab_Click(object sender, EventArgs e)
         {
             try
@@ -183,9 +172,6 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
         #region Category Management
 
-        /// <summary>
-        /// Loads categories for dropdown with enhanced error handling
-        /// </summary>
         private void LoadCategories()
         {
             try
@@ -208,9 +194,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
         }
 
-        /// <summary>
-        /// Adds new category with enhanced validation
-        /// </summary>
+
         protected void btnAddCategory_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
@@ -251,9 +235,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
         }
 
-        /// <summary>
-        /// Binds categories to GridView using DataTable for pagination support
-        /// </summary>
+
         private void BindCategoriesGrid()
         {
             try
@@ -274,9 +256,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
         }
 
-        /// <summary>
-        /// Category GridView editing events
-        /// </summary>
+
         protected void gvCategories_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvCategories.EditIndex = e.NewEditIndex;
@@ -336,7 +316,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             try
             {
                 int categoryId = Convert.ToInt32(gvCategories.DataKeys[e.RowIndex].Value);
-                string categoryName = ""; 
+                string categoryName = "";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -387,9 +367,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
 
         #region Destination Management
 
-        /// <summary>
-        /// Enhanced destination addition with image upload and validation
-        /// </summary>
+
         protected void btnAddDestination_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
@@ -453,9 +431,9 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
         }
 
-        /// <summary>
+
         /// Enhanced destination binding with error handling
-        /// </summary>
+
         private void BindDestinations()
         {
             try
@@ -483,9 +461,9 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
         }
 
-        /// <summary>
+
         /// Destination GridView events with enhanced functionality
-        /// </summary>
+
         protected void gvDestinations_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvDestinations.EditIndex = e.NewEditIndex;
@@ -553,7 +531,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             try
             {
                 int destinationId = Convert.ToInt32(gvDestinations.DataKeys[e.RowIndex].Value);
-                string destName = ""; 
+                string destName = "";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -562,7 +540,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
                     // Get destination name for confirmation
                     SqlCommand cmdName = new SqlCommand("SELECT Destination FROM Destinations WHERE DestinationID = @ID", conn);
                     cmdName.Parameters.AddWithValue("@ID", destinationId);
-                    destName = cmdName.ExecuteScalar()?.ToString(); 
+                    destName = cmdName.ExecuteScalar()?.ToString();
 
                     // Cascade delete
                     SqlCommand cmd = new SqlCommand("DELETE FROM Cart WHERE DestinationID = @ID", conn);
