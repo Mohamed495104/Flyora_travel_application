@@ -14,8 +14,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            // TEMPORARY DEBUG: Show all session values
-            Debug.WriteLine("Session contents:");
+
             foreach (string key in Session.Keys)
             {
                 Debug.WriteLine($"{key} = {Session[key]}");

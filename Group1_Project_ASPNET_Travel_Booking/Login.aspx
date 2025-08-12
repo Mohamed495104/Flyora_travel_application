@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Group1_Project_ASPNET_Travel_Booking.Login" MasterPageFile="~/Site1.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-  
+
     <asp:SqlDataSource ID="sqlDataSourceLogin" runat="server"
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         SelectCommand="SELECT UserID, Username, Email, Role, CreatedAt FROM Users WHERE Email = @Email AND Password = @Password">
@@ -11,7 +11,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
 
-   
+
     <asp:SqlDataSource ID="sqlDataSourceRegister" runat="server"
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         InsertCommand="INSERT INTO Users (Username, Email, Password, Role, CreatedAt) VALUES (@Username, @Email, @Password, @Role, @CreatedAt)"
@@ -28,7 +28,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
 
-    
+
     <asp:SqlDataSource ID="sqlDataSourceCheckEmail" runat="server"
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         SelectCommand="SELECT COUNT(*) as EmailCount FROM Users WHERE Email = @Email">
@@ -37,7 +37,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
 
-  
+
     <asp:SqlDataSource ID="sqlDataSourceCheckUsername" runat="server"
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         SelectCommand="SELECT COUNT(*) as UsernameCount FROM Users WHERE Username = @Username">
@@ -52,7 +52,7 @@
             <h2>Start your journey with us</h2>
         </div>
     </section>
-    
+
     <section class="login-section">
         <div class="container">
             <div class="form-card">
@@ -81,13 +81,13 @@
 
                     <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary w-100" ValidationGroup="LoginGroup" OnClick="btnLogin_Click" />
                     <asp:Label ID="lblLoginError" runat="server" CssClass="error-message text-center d-block mt-2" Visible="false"></asp:Label>
-                    
+
                     <p class="text-center mt-3">
                         <asp:LinkButton ID="lnkSwitchToRegister" runat="server" CssClass="text-primary" OnClick="lnkSwitchToRegister_Click" CausesValidation="false">Need an account? Register here</asp:LinkButton>
                     </p>
                 </asp:Panel>
 
-               
+
                 <asp:Panel ID="pnlRegister" runat="server" CssClass="tab-content">
                     <h3 class="text-center text-primary mb-4">Create an Account</h3>
                     <div class="form-group mb-3">
@@ -107,13 +107,29 @@
                         <asp:RequiredFieldValidator ID="rfvRegPassword" runat="server" ControlToValidate="txtRegPassword" ErrorMessage="Password is required" CssClass="error-message" ValidationGroup="RegisterGroup" Display="Dynamic" />
                     </div>
                     <div class="form-group mb-3">
+                        <asp:Label ID="lblRegConfirmPassword" runat="server" Text="Confirm Password" AssociatedControlID="txtRegConfirmPassword"></asp:Label>
+                        <asp:TextBox ID="txtRegConfirmPassword" runat="server" CssClass="form-control form-control-lg" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvRegConfirmPassword" runat="server"
+                            ControlToValidate="txtRegConfirmPassword"
+                            ErrorMessage="Confirm Password is required"
+                            CssClass="error-message"
+                            ValidationGroup="RegisterGroup" Display="Dynamic" />
+                        <asp:CompareValidator ID="cvRegPasswordMatch" runat="server"
+                            ControlToCompare="txtRegPassword"
+                            ControlToValidate="txtRegConfirmPassword"
+                            ErrorMessage="Passwords do not match"
+                            CssClass="error-message"
+                            ValidationGroup="RegisterGroup" Display="Dynamic" />
+                    </div>
+
+                    <div class="form-group mb-3">
                         <asp:Label ID="lblRegRole" runat="server" Text="Role" AssociatedControlID="ddlRole"></asp:Label>
                         <asp:DropDownList ID="ddlRole" runat="server" CssClass="form-control form-control-lg">
                             <asp:ListItem Value="User" Selected="True">User</asp:ListItem>
                             <asp:ListItem Value="Admin">Admin</asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                    
+
                     <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-primary w-100" ValidationGroup="RegisterGroup" OnClick="btnRegister_Click" UseSubmitBehavior="true" />
                     <asp:Label ID="lblRegError" runat="server" CssClass="error-message text-center d-block mt-2" Visible="false"></asp:Label>
                 </asp:Panel>
