@@ -3,28 +3,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Shopping Cart - Flyora</title>
     <style>
-       /* Modern Cart Styles */
+
 .cart-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f4f8 100%);
+    min-height: 80vh;
 }
 
 .cart-header {
     text-align: center;
     margin-bottom: 3rem;
+    padding: 2rem 0;
 }
 
     .cart-header h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         font-weight: 700;
-        color: #2c3e50;
+        color: #2c5aa0;
         margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(44, 90, 160, 0.1);
     }
 
     .cart-header p {
-        font-size: 1.1rem;
-        color: #6c757d;
+        font-size: 1.2rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
     }
 
 /* Message Styles */
@@ -33,63 +39,71 @@
 }
 
 .alert {
-    border-radius: 8px;
+    border-radius: 15px;
     border: none;
-    padding: 1rem 1.5rem;
-    font-weight: 500;
+    padding: 1.2rem 1.8rem;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 .alert-success {
-    background-color: #d4edda;
+    background: linear-gradient(45deg, #d4edda, #c3e6cb);
     color: #155724;
-    border-left: 4px solid #28a745;
+    border-left: 5px solid #28a745;
 }
 
 .alert-danger {
-    background-color: #f8d7da;
+    background: linear-gradient(45deg, #f8d7da, #f1b0b7);
     color: #721c24;
-    border-left: 4px solid #dc3545;
+    border-left: 5px solid #dc3545;
 }
 
 /* Cart Layout */
 .cart-content {
     display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 2rem;
+    grid-template-columns: 1fr 380px;
+    gap: 2.5rem;
     align-items: start;
 }
 
 @media (max-width: 992px) {
     .cart-content {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 }
 
 /* Cart Items */
 .cart-items {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     overflow: hidden;
+    border: 1px solid rgba(44, 90, 160, 0.1);
 }
 
 .cart-items-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3d6f 100%);
     color: white;
-    padding: 1.25rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .cart-item {
-    padding: 1.5rem;
-    border-bottom: 1px solid #e9ecef;
-    transition: background-color 0.3s ease;
+    padding: 2rem;
+    border-bottom: 1px solid #f1f3f4;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
     .cart-item:hover {
-        background-color: #f8f9fa;
+        background-color: rgba(44, 90, 160, 0.02);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     }
 
     .cart-item:last-child {
@@ -98,192 +112,236 @@
 
 .item-image {
     width: 100%;
-    height: 120px;
+    height: 140px;
     object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
 }
 
+    .item-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
 .item-details h5 {
-    color: #2c3e50;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    color: #2c5aa0;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
 }
 
 .item-description {
-    color: #6c757d;
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    color: #666;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 .travel-info {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.5rem;
+    background: rgba(44, 90, 160, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid #2c5aa0;
 }
 
 .travel-info-item {
     display: flex;
     align-items: center;
     color: #495057;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
     .travel-info-item i {
-        width: 16px;
-        margin-right: 0.5rem;
-        color: #667eea;
+        width: 20px;
+        margin-right: 0.8rem;
+        color: #2c5aa0;
+        font-size: 1rem;
     }
 
 .price-section {
     text-align: right;
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid rgba(44, 90, 160, 0.1);
 }
 
 .price-per-person {
     color: #6c757d;
-    font-size: 0.875rem;
-    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .individual-price {
     color: #28a745;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
 }
 
 .total-price {
-    color: #2c3e50;
-    font-size: 1.25rem;
-    font-weight: 700;
+    color: #2c5aa0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-shadow: 1px 1px 2px rgba(44, 90, 160, 0.1);
 }
 
 .item-actions {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.8rem;
     justify-content: flex-end;
 }
 
 .btn-edit {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    color: #495057;
-    padding: 0.375rem 0.75rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+    border: 2px solid #2c5aa0;
+    color: #2c5aa0;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
     .btn-edit:hover {
-        background: #e9ecef;
-        border-color: #adb5bd;
-        color: #495057;
+        background: #2c5aa0;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(44, 90, 160, 0.3);
+        text-decoration: none;
     }
 
 .btn-remove {
-    background: #fff5f5;
-    border: 1px solid #fed7d7;
-    color: #c53030;
-    padding: 0.375rem 0.75rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
+    background: linear-gradient(45deg, #fff5f5, #fed7d7);
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
     .btn-remove:hover {
-        background: #fed7d7;
-        border-color: #fc8181;
-        color: #c53030;
+        background: #dc3545;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(220, 53, 69, 0.3);
+        text-decoration: none;
     }
 
 /* Order Summary */
 .order-summary {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     position: sticky;
     top: 2rem;
     overflow: hidden;
+    border: 1px solid rgba(44, 90, 160, 0.1);
 }
 
 .summary-header {
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3d6f 100%);
     color: white;
-    padding: 1.25rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .summary-body {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .summary-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     color: #495057;
+    font-weight: 500;
+    padding: 0.5rem 0;
 }
 
 .summary-divider {
     border: none;
-    height: 1px;
-    background: #e9ecef;
-    margin: 1rem 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2c5aa0, transparent);
+    margin: 1.5rem 0;
 }
 
 .summary-total {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #2c5aa0;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(145deg, rgba(44, 90, 160, 0.05), rgba(44, 90, 160, 0.1));
+    border-radius: 12px;
+    border: 2px solid rgba(44, 90, 160, 0.2);
 }
 
 .total-amount {
     color: #28a745;
+    text-shadow: 1px 1px 2px rgba(40, 167, 69, 0.1);
 }
 
 .checkout-actions {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
 }
 
 .btn-checkout {
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3d6f 100%);
     border: none;
     color: white;
-    padding: 0.875rem 1.5rem;
-    border-radius: 8px;
+    padding: 1.2rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+}
+
+    .btn-checkout:hover {
+        background: linear-gradient(135deg, #1e3d6f 0%, #4a90e2 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(44, 90, 160, 0.4);
+        color: white;
+    }
+
+.btn-clear {
+    background: white;
+    border: 2px solid #6c757d;
+    color: #6c757d;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
-    .btn-checkout:hover {
-        background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
-    }
-
-.btn-clear {
-    background: white;
-    border: 1px solid #dc3545;
-    color: #dc3545;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
     .btn-clear:hover {
-        background: #dc3545;
+        background: #6c757d;
         color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
     }
 
 /* Empty Cart */
@@ -291,64 +349,96 @@
     text-align: center;
     padding: 4rem 2rem;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 1px solid rgba(44, 90, 160, 0.1);
 }
 
 .empty-cart-icon {
-    font-size: 4rem;
-    color: #dee2e6;
-    margin-bottom: 1.5rem;
+    font-size: 5rem;
+    color: rgba(44, 90, 160, 0.3);
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #2c5aa0, #4a90e2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .empty-cart h3 {
-    color: #6c757d;
+    color: #2c5aa0;
     margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.8rem;
 }
 
 .empty-cart p {
-    color: #adb5bd;
-    margin-bottom: 2rem;
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .btn-explore {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3d6f 100%);
     border: none;
     color: white;
-    padding: 0.875rem 2rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
+    padding: 1.2rem 2.5rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
     transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
 }
 
     .btn-explore:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(44, 90, 160, 0.4);
+        color: white;
     }
 
 /* Continue Shopping */
 .continue-shopping {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .btn-continue {
     background: white;
-    border: 2px solid #667eea;
-    color: #667eea;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 500;
+    border: 2px solid #2c5aa0;
+    color: #2c5aa0;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
     transition: all 0.3s ease;
     text-decoration: none;
+    box-shadow: 0 4px 15px rgba(44, 90, 160, 0.1);
 }
 
     .btn-continue:hover {
-        background: #667eea;
+        background: #2c5aa0;
         color: white;
         text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
     }
+
+/* Enhanced Visual Effects */
+.cart-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #2c5aa0, #4a90e2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cart-item:hover::before {
+    opacity: 1;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -357,20 +447,59 @@
     }
 
     .cart-header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    .cart-header p {
+        font-size: 1rem;
     }
 
     .cart-item {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .item-actions {
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .price-section {
         text-align: center;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .travel-info {
+        padding: 0.8rem;
+    }
+
+    .summary-body {
+        padding: 1.5rem;
+    }
+
+    .btn-checkout, .btn-explore {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .item-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-edit, .btn-remove {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .checkout-actions {
+        gap: 0.8rem;
     }
 }
     </style>

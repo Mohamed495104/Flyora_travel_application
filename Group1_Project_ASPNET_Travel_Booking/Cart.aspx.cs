@@ -215,7 +215,40 @@ namespace Group1_Project_ASPNET_Travel_Booking
                 if (Session["UserID"] == null)
                 {
                     ShowMessage("Please login to proceed with booking.", "alert-warning");
-                    Response.Redirect("~/Travel/Login.aspx");
+
+                    try
+                    {
+                        
+                        string loginUrl = Page.GetRouteUrl("Login", null);
+                        if (!string.IsNullOrEmpty(loginUrl))
+                        {
+                            Response.Redirect(loginUrl, false);
+                            Context.ApplicationInstance.CompleteRequest();
+                            return;
+                        }
+                    }
+                    catch { }
+
+                    try
+                    {
+                       
+                        Response.Redirect("~/Travel/Login", false);
+                        Context.ApplicationInstance.CompleteRequest();
+                        return;
+                    }
+                    catch { }
+
+                    try
+                    {
+                        
+                        Response.Redirect("~/Login.aspx", false);
+                        Context.ApplicationInstance.CompleteRequest();
+                        return;
+                    }
+                    catch { }
+
+                    
+                    Response.Write("<script>window.location.href = '/Travel/Login';</script>");
                     return;
                 }
 
@@ -226,7 +259,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
                     return;
                 }
 
-                // ✅ Redirect to correct checkout form
+                // Redirect to checkout form
                 Response.Redirect("~/checkoutForm.aspx");
             }
             catch (Exception ex)
@@ -247,7 +280,7 @@ namespace Group1_Project_ASPNET_Travel_Booking
             }
             catch (Exception)
             {
-                // Ignore master page refresh errors
+               
             }
         }
 
