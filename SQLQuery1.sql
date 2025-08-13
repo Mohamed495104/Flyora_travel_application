@@ -1,0 +1,2 @@
+﻿ALTER TABLE Bookings ALTER COLUMN CardLastFour CHAR(4);
+
