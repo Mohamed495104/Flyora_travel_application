@@ -34,5 +34,5 @@ It allows users to explore destinations, book trips, manage bookings, and view c
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-repo/flyora-travel-booking.git
+   https://github.com/Mohamed495104/Flyora_travel_application.git
    cd flyora-travel-booking
