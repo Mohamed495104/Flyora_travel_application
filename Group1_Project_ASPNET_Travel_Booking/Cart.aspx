@@ -524,7 +524,7 @@
                 <!-- Items List -->
                 <div class="cart-items">
                     <div class="cart-items-header">
-                        <i class="fas fa-list me-2"></i>Cart Items
+                        <i class="fas fa-list me-2"></i>Destination
                     </div>
                     
                     <asp:Repeater ID="rptCartItems" runat="server" OnItemCommand="rptCartItems_ItemCommand">
@@ -600,7 +600,7 @@
                     </div>
                     <div class="summary-body">
                         <div class="summary-row">
-                            <span>Items in Cart:</span>
+                            <span>Bookings:</span>
                             <span><asp:Label ID="lblItemCount" runat="server" Text="0"></asp:Label></span>
                         </div>
                         <div class="summary-row">
